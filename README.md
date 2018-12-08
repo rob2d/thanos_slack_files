@@ -9,7 +9,7 @@ To use this app, you will need the following:
 
 Once you have these, be sure to:
 1) Open your terminal
-2) Go to the directory where you intend to build your source code to a ROM and type
+2) `cd` to the directory where you intend to install and type
 ```
 npm install -g thanos-slack-files
 ```
@@ -28,6 +28,10 @@ Be sure to configure the relevant parameters in a `.env` file, go to your cloned
 ```
 thanos
 ```
+
+You will then get a notice in your slack channel telling you that your app is Thanos'ing, along with what file is being deleted every 10 seconds. 
+
+Note that it is handled this way as Slack's API does not allow multiple deletions with one request while also rate-limiting to prevent thrashing of their servers.
 
 ## Contributing ##
 
