@@ -1,0 +1,24 @@
+{
+  "name": "thanos-slack-files",
+  "version": "0.1.0",
+  "description": "simple app to remove the largest files and free up storage for your slack account",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "thanos",
+    "slack",
+    "file",
+    "storage",
+    "free",
+    "slack-app"
+  ],
+  "author": "Robert Concepcion III",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/client": "^4.8.0",
+    "dotenv": "^6.2.0"
+  }
+}
