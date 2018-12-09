@@ -1,7 +1,7 @@
 {
   "name": "thanos-slack-files",
-  "version": "0.2.0",
   "description": "simple app to remove the largest files and free up storage for your free-tier slack team/workspace.",
+  "version": "0.2.2",
   "description": "simple app to easily remove the largest files and free up storage for your free-tier slack team/workspace.",
   "main": "lib/index.js",
   "preferGlobal": true,

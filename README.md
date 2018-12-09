@@ -22,6 +22,7 @@ npm install -g thanos-slack-files
 ```
 SLACK_CHANNEL=[your-slack-channel-string]
 SLACK_TOKEN=[your-app-oauth-token]
+DELETION_INTERVAL=[{optional}seconds-btwn-deleting-files]
 ```
 
 ## Usage ##
@@ -32,9 +33,9 @@ Be sure to configure the relevant parameters in a `.env` file, go to your cloned
 thanos
 ```
 
-You will then get a notice in your slack channel telling you that your app is Thanos'ing, along with what file is being deleted every 10 seconds. 
+You will then get a notice in your slack channel telling you that your app is Thanos'ing, along with what file is being deleted.
 
-Note that it is handled this way as Slack's API does not allow multiple deletions with one request while also rate-limiting to prevent thrashing of their servers.
+By default, every file deletion will occur every 10 seconds. This can be adjusted using the environment file's `DELETION_INTERVAL` param (or like any other env variable depending on your OS). It is handled this way because Slack's API does not allow multiple deletions with one request while also rate-limiting to prevent thrashing of their servers.
 
 ## Contributing ##
 
