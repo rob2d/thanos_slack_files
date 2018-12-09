@@ -1,5 +1,6 @@
 # thanos-slack-files #
-simple app to remove the largest files and free up storage for your free-tier slack team/workspace.
+![Image of Infinite Cleaning Gauntlet](./infinite-cleaning-gauntlet)
+simple app to easily remove the largest files and free up storage for your free-tier slack team/workspace.
 
 ## Getting Started ##
 To use this app, you will need the following:
