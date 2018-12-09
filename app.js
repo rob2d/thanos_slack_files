@@ -33,7 +33,7 @@ global.require = function(...args) {
 // basepath (__base), and require node 
 // modules
 
-const envFile = require('dotenv').config({ path : global.resolvePath('./../../.env') }), // funnel process.env vars
+const envFile = require('dotenv').config(), // funnel process.env vars
       express = require('express'),
       fs = require('fs'),
       EventEmitter = require('events'),
@@ -130,7 +130,7 @@ app.get('/api/*', function(req,res) {
 // know that hook is available and where
 
 app.get('*', function(req,res) {
-    res.status(200).send('Thanos server running on ' + app.port);
+    res.status(200).send('Thanos server running on ' + app.get('port'));
 });
 
 // ==================== //
@@ -143,25 +143,27 @@ app.get('*', function(req,res) {
 // user.
 
 let startServer = server => {
-let host = server.address().address,
-    port = server.address().port,
-    version = require('./../../package.json').version,
-    appName = require('./../../package.json').name,
-    protocol = sslConfig.https ? 'https' : 'http';
+    let host = server.address().address,
+        port = server.address().port,
+        version = require('./package.json').version,
+        appName = require('./package.json').name,
+        protocol = sslConfig.https ? 'https' : 'http';
 
-    host = (host == '0.0.0.0'|| host == '::') ? 'localhost' : host;
+        app.set('port', port);
 
-    console.log('%s '.white + '[v%s] %s', appName, version, argv.dev ? '(DEV MODE)' : '');
-    console.log('-> currently running at ' + protocol.blue.bold + '://%s:%s'.blue.bold +
-                ' in HTTP %s mode', host, port, sslConfig.https ? 'Secure' : 'Insecure');
-    
-    if(!sslConfig.https) {
-        console.log('(to enable HTTPS, run app with the ' + 
-            'flags "https", "ssl_cert" and "ssl_key")'
-        );
-    }
+        host = (host == '0.0.0.0'|| host == '::') ? 'localhost' : host;
 
-    return server;
+        console.log('%s '.white + '[v%s] %s', appName, version, argv.dev ? '(DEV MODE)' : '');
+        console.log('-> currently running at ' + protocol.blue.bold + '://%s:%s'.blue.bold +
+                    ' in HTTP %s mode', host, port, sslConfig.https ? 'Secure' : 'Insecure');
+        
+        if(!sslConfig.https) {
+            console.log('(to enable HTTPS, run app with the ' + 
+                'flags "https", "ssl_cert" and "ssl_key")'
+            );
+        }
+
+        return server;
 };
 
 let protocolSrc = sslConfig.https ? https : http;
