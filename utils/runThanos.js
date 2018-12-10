@@ -73,12 +73,8 @@ function deleteFile(file) {
     });
 }
 
-module.exports = token => {
-    if(token == process.env.SLACK_TOKEN) {
-        web.files.list()
+module.exports = ()=> {
+    web.files.list()
         .then(({ files }) => runThanos(files) )
-            .catch( console.error );
-    } else {
-        console.error('invalid token provided');
-    }
+            .catch( console.error ); 
 }

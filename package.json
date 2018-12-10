@@ -3,6 +3,12 @@
   "description": "simple app to easily remove the largest files and free up storage for your free-tier slack team/workspace.",
   "version": "0.2.2",
   "main": "app.js",
+  "bin": {
+    "thanos": "./bin/thanos.js"
+  },
+  "scripts" : {
+    "start" : "pm2 start app.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rob2d/thanos-slack-files.git"
