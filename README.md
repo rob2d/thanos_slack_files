@@ -11,6 +11,8 @@ To use this app, you will need the following:
 - [NodeJS 10.x/NPM 6.x](http://www.nodejs.org)
 - a [Slack App](https://api.slack.com/apps) with [`admin` scope/privileges](https://api.slack.com/scopes/admin) set along with it's OAuth token.
 
+Note: because of the nature of this app, you may also want to have a private slack channel dedicated to it. Slack does not specifically lock down permissions to apps by default; see: https://stackoverflow.com/questions/44200239/restrict-slack-slash-command-access for details
+
 # Usage #
 
 There are two ways to use this app, depending on your security needs and other factors: 
@@ -70,6 +72,6 @@ PR requests welcome. Please be reasonable with issue reports, and use stack exch
 
 ## Note ##
 
-This is open source/done on my free time. As such, there are likely to be things that can be improved that I may not necessarily get to. Your support is greatly appreciated throughout this process.
+This is open source/done on my free time. As such, there are likely to be things that can be improved that I may not necessarily get to. Your support is appreciated throughout this process.
 
 Thanks!
