@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-
-module.exports = require('./../lib');
+const runThanos = require('./../utils/runThanos');
+runThanos();

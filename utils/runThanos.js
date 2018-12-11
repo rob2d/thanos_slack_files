@@ -1,5 +1,5 @@
 const { IncomingWebhook, WebClient } = require('@slack/client');
-const PromiseUtils = require('./utils/PromiseUtils');
+const PromiseUtils = global.require('utils/PromiseUtils');
 const envFile = require('dotenv').config(); // funnel process.env vars
 const token = process.env.SLACK_TOKEN;
 const channel = process.env.SLACK_CHANNEL;
@@ -21,7 +21,7 @@ function formatFileText(f) {
  * delete an array of slack files
  * (with some enthusiastic logging)
  */
-function runThanos (files) {       
+function runThanos(files) {    
 
     if(files.length) {
         // sort files in descending order, 
@@ -31,7 +31,6 @@ function runThanos (files) {
                         .splice(0, files.length/2);
     
         const text = '...TIME TO THANOS (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ ';
-
         web.chat.postMessage({ channel, text })
             .then( res => deleteFileSequence(filesToThanos) )
             .catch(console.error);
@@ -74,6 +73,8 @@ function deleteFile(file) {
     });
 }
 
-web.files.list()
-    .then(({ files }) => runThanos(files))
-    .catch(console.error);
+module.exports = ()=> {
+    web.files.list()
+        .then(({ files }) => runThanos(files) )
+            .catch( console.error ); 
+}
