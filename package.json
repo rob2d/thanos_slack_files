@@ -1,7 +1,7 @@
 {
   "name": "thanos-slack-files",
   "description": "simple app to easily remove the largest files and free up storage for your free-tier slack team/workspace.",
-  "version": "0.3.0",
+  "version": "0.3.3",
   "main": "app.js",
   "bin": {
     "thanos": "./bin/thanos.js"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rob2d/thanos-slack-files.git"
+    "url": "git+https://github.com/rob2d/thanos_slack_files.git"
   },
   "keywords": [
     "nodejs",

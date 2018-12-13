@@ -1,5 +1,21 @@
+const path = require('path');
+global.basePath = __dirname + '/';
+
+/**
+ * Helper function which resolves to root
+ * file __dirname/relPath
+ */
+global.resolvePath = function(...args) {
+	return path.resolve(global.basePath, ...args);
+}
+
+global.require = function(...args) {
+    return require(global.resolvePath(...args));
+}
+
+
 const { IncomingWebhook, WebClient } = require('@slack/client');
-const PromiseUtils = global.require('utils/PromiseUtils');
+const PromiseUtils = global.require('./PromiseUtils');
 const envFile = require('dotenv').config(); // funnel process.env vars
 const token = process.env.SLACK_TOKEN;
 const channel = process.env.SLACK_CHANNEL;

@@ -1,4 +1,6 @@
-![Image of Infinite Cleaning Gauntlet](./infinite-cleaning-gauntlet.png)
+<p align="center">
+<img        src="https://github.com/rob2d/thanos_slack_files/raw/master/infinite-cleaning-gauntlet.png" alt="Image of Infinite Cleaning Gauntlet">
+</p>
 
 # thanos-slack-files #
 
@@ -11,7 +13,7 @@ To use this app, you will need the following:
 - [NodeJS 10.x/NPM 6.x](http://www.nodejs.org)
 - a [Slack App](https://api.slack.com/apps) with [`admin` scope/privileges](https://api.slack.com/scopes/admin) set along with it's OAuth token.
 
-Note: because of the nature of this app, you may also want to have a private slack channel dedicated to it. Slack does not specifically lock down permissions to apps by default; see: https://stackoverflow.com/questions/44200239/restrict-slack-slash-command-access for details
+Note: because of the nature of this app, you may also want to have a private slack channel druedicated to it. Slack does not specifically lock down permissions to apps by default; see: https://stackoverflow.com/questions/44200239/restrict-slack-slash-command-access for details
 
 # Usage #
 
@@ -52,7 +54,7 @@ npm run start
 
 You should now be running a cluster of the server via [PM2](http://pm2.keymetrics.io/). 
 
-4. Now in your slack panel, add a Slack Command under you app to `<yourserverurl:3002>/api/thanos` which should be listening for a 
+4. Now in your slack panel, add a Slack Command under you app which points to `<yourserverurl:3002>/api/thanos`. Your server should now be listening for a `/thanos` command.
 
 ## Configuration ## 
 
